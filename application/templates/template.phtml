@@ -1,0 +1,8 @@
+    <h2><?php echo $title?></h2>
+    <p>Vous êtes sur la page numéro <?php echo $numPage?></p>
+    
+    <ul>
+    <?php foreach ($messages as $message) :?>
+    	<li> <?= $message?></li>
+    <?php endforeach;?>
+    </ul>
