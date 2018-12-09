@@ -3,7 +3,7 @@
 Cette coquille un peu moins vide  que le pattern MVC---Procedural est la seconde de mes recherches sur le pattern MVC
 Une grande partie de ce code provient d'une formation que j'ai suivi, malheureusement inaboutissante, à Lyon.
 Il est composé de Fbootstrap (accessible a l'adresse fqdn.dev/demo) 
-et de HTMLBoilerPlate(merci pour ce précieux fichier humans.txt)
+et de HTMLBoilerPlate (merci pour ce précieux fichier humans.txt)
 
 la page fqdn.dev/example permet d'avoir une idée de ce qu'il faut faire pour créer une nouvelle page
 
