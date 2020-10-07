@@ -1,25 +1,29 @@
 <?php 
 class Url
 {
-	static function link_rewrite($page, $params = array())
+	/**
+	 * Fonction permettant de réécrire les urls de navigation dans les pages de template
+	 * A utiliser a chaque fois afin de permettre une modification future du système de routing
+	 *
+	 * @param string $page
+	 * @param array $params
+	 * @return string
+	 */
+	static public function link_rewrite($page, $params = array())
 	{
 		$stringParams = '';
 		foreach($params as $key => $values){
 			$stringParams .= "/" . $key ."/" . $values;
 		}
 		return (('home' == $page) ? '/' : '/' . $page . $stringParams);
-		  // -- Bonne version
-		
-		/*
-		//Changement de comportement d'une fonction PHP-Zend ... grrr
-		array_unshift($params , $page);
-		var_dump($params);
-		$page = '/' . implode('/' , $params);
-		*/
-		return $page;
 		
 	}
-	static function url_rewrite()
+	/**
+	 * Fonction permettant de récupérer les variables provenant de l'url et de définir la page et le template a charger
+	 *
+	 * @return array 
+	 */
+	static public function url_rewrite()
 	{
 		
 		$url = parse_url($_SERVER['REQUEST_URI']);
