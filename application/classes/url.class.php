@@ -19,7 +19,8 @@ class Url
 		
 	}
 	/**
-	 * Fonction permettant de récupérer les variables provenant de l'url et de définir la page et le template a charger
+	 * Fonction permettant de récupérer les variables provenant de l'url et de définir la page et le template a charger.
+	 * Les url sont de type  www.domain.tld/page/varname1/varvalue1/varname2/varvalue2/ ...
 	 *
 	 * @return array 
 	 */
@@ -28,10 +29,9 @@ class Url
 		
 		$url = parse_url($_SERVER['REQUEST_URI']);
 		$urlParts = explode('/' , trim( $url['path'] , '/' ));
+
 		//Récupération du nom de la page
-		//$page['name'] = $urlParts[0];
 		($urlParts[0] == 'index' ||$urlParts[0] == '' )?$page['name']='home':$page['name']=$urlParts[0];
-		
 		unset($urlParts[0]);
 		
 		//vérification du nombre de parametres: s'il n'existe pas autant de clé que
@@ -43,6 +43,8 @@ class Url
 			return $page;
 		}else{
 		
+
+		// on combine les clé et les valeurs que l'on a trouvé dans l'url
 		$values = array();
 		$keys = array();
 		foreach( $urlParts as $key => $value ){
@@ -53,13 +55,16 @@ class Url
 			}
 		}
 		$page['params'] = array_combine($keys, $values);
-		}
 		
+
+		// ici on teste l'existence de la page php, si celle ci n'existe pas on renvoi sur la page d'erreur
 		$pageFile = PAGES_PATH . DIRECTORY_SEPARATOR . $page['name'] . '.php';
-		
 		if(!file_exists($pageFile)){
 			$page['name'] = 'error';
 		}
+
+
+
 		return $page;
 		
 	}
