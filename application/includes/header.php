@@ -51,9 +51,6 @@
             <li <?php echo $page == 'guestbook' ? 'class="active"' : ''?> >
             <a href="<?php echo rewrite('guestbook') ?>">Livre d'or</a>
             </li>
-            <li>
-            <a href="/demo.php">Démo</a>
-            </li>
           </ul>
         </div>
       </div>
