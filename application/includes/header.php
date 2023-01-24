@@ -22,7 +22,6 @@
 
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/docs.css">
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
